@@ -10,6 +10,9 @@ of sets.
 This package implements a set as a map without values. Keys can have any
 arbitrary type, as long as there is equality defined on it.
 
+The package documentation can be read on godoc.org:  
+[![GoDoc](http://godoc.org/github.com/hweidner/set?status.png)](http://godoc.org/github.com/hweidner/set)
+
 Examples
 --------
 
