@@ -156,17 +156,14 @@ func (s Set) Union(t ...Set) Set {
 // The sets themselfes are not modified.
 func (s Set) Intersect(t ...Set) Set {
 	r := Set{}
+next_s_elem:
 	for k, _ := range s {
-		inter := true
 		for _, i := range t {
 			if _, ok := i[k]; !ok {
-				inter = false
-				break
+				break next_s_elem
 			}
 		}
-		if inter == true {
-			r[k] = value
-		}
+		r[k] = value
 	}
 	return r
 }
