@@ -9,6 +9,8 @@ import (
 	"sort"
 )
 
+const VERSION = "0.1"
+
 // ----- AnySlice -----
 
 // AnySlice is a slice type for arbitrary values, which implements the sort.Interface.
@@ -40,12 +42,12 @@ var value = struct{}{}
 
 // ----- constructors -----
 
-// Create a new set.
+// New creates a new (empty) set.
 func New() Set {
 	return Set{}
 }
 
-// Create a new initialized set.
+// NewInit creates a new set and initializes it with the argument values.
 func NewInit(e ...interface{}) Set {
 	s := Set{}
 	for _, i := range e {
@@ -54,7 +56,30 @@ func NewInit(e ...interface{}) Set {
 	return s
 }
 
-// ----- methods -----
+// ----- methods that modify the receiver -----
+
+// Add adds one or more elements to the given set.
+func (s Set) Add(e ...interface{}) {
+	for _, i := range e {
+		s[i] = value
+	}
+}
+
+// Remove removes one or more elements from the given set.
+func (s Set) Remove(e ...interface{}) {
+	for _, i := range e {
+		delete(s, i)
+	}
+}
+
+// Clear removes all elements from the given set.
+func (s Set) Clear() {
+	for k, _ := range s {
+		delete(s, k)
+	}
+}
+
+// ----- methods that do not modify the receiver -----
 
 // IsEmpty tests if the set is empty.
 func (s Set) IsEmpty() bool {
@@ -107,13 +132,6 @@ func (s Set) IsSupersetOf(t Set) bool {
 	return t.IsSubsetOf(s)
 }
 
-// Clear removes all elements from the given set.
-func (s Set) Clear() {
-	for k, _ := range s {
-		delete(s, k)
-	}
-}
-
 // Copy returns a copy of a set. The set s is not modified.
 func (s Set) Copy() Set {
 	t := Set{}
@@ -121,20 +139,6 @@ func (s Set) Copy() Set {
 		t[k] = value
 	}
 	return t
-}
-
-// Add adds one or more elements to the given set.
-func (s Set) Add(e ...interface{}) {
-	for _, i := range e {
-		s[i] = value
-	}
-}
-
-// Remove removes one or more elements from the given set.
-func (s Set) Remove(e ...interface{}) {
-	for _, i := range e {
-		delete(s, i)
-	}
 }
 
 // Union returns a new set, which represents the union of two or more sets.
