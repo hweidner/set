@@ -1,7 +1,7 @@
 set
 ===
 
-A generic set implementation for Go
+A generic set implementation for Go.
 
 Package set offeres a generic set implementation in Go.
 See http://en.wikipedia.org/wiki/Set_%28mathematics%29 for a full discussion
