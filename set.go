@@ -164,7 +164,7 @@ next_s_elem:
 	for k, _ := range s {
 		for _, i := range t {
 			if _, ok := i[k]; !ok {
-				break next_s_elem
+				continue next_s_elem
 			}
 		}
 		r[k] = value
