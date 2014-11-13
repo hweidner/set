@@ -7,6 +7,7 @@ package set
 import (
 	"fmt"
 	"testing"
+	"time"
 )
 
 func TestSet(t *testing.T) {
@@ -87,5 +88,15 @@ func TestSet(t *testing.T) {
 	b.Clear()
 	if !b.IsEmpty() {
 		t.Errorf("Clear/IsEmpty test failed: b.Clear() is not empty but %v.\n", b)
+	}
+
+	ch, done := a.Iterator()
+	h1 := <-ch
+	h2 := <-ch
+	close(done)
+	time.Sleep(10 * time.Millisecond)
+	h3, ok := <-ch
+	if h1 == interface{}(nil) || h2 == interface{}(nil) || h3 != interface{}(nil) || ok != false {
+		t.Errorf("Iterator failed: got %T/%T/%T/%t, expected int/int/<nil>/false", h1, h2, h3, ok)
 	}
 }

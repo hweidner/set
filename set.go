@@ -164,7 +164,7 @@ next_s_elem:
 	for k, _ := range s {
 		for _, i := range t {
 			if _, ok := i[k]; !ok {
-				break next_s_elem
+				continue next_s_elem
 			}
 		}
 		r[k] = value
@@ -207,7 +207,7 @@ func (s Set) List() AnySlice {
 	return r
 }
 
-// List returns a list of the set elements in a slice.
+// SortedList returns a sorted list of the set elements in a slice.
 func (s Set) SortedList() AnySlice {
 	r := s.List()
 	sort.Sort(r)
@@ -222,4 +222,24 @@ func (s Set) String() string {
 	}
 	str += "}"
 	return str
+}
+
+// Iterator returns a channel that can be used to iterate over the set. A second
+// "done" channel can be used to preliminarily terminate the iteration by closing
+// the done channel.
+func (s Set) Iterator() (<-chan interface{}, chan<- struct{}) {
+	ic := make(chan interface{})
+	done := make(chan struct{})
+	go func() {
+		for k, _ := range s {
+			select {
+			case ic <- k:
+			case <-done:
+				close(ic)
+				return
+			}
+		}
+		close(ic)
+	}()
+	return ic, done
 }
