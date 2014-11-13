@@ -30,6 +30,12 @@ Examples
 	a.Add(2)
 	b.Add(5)
 	fmt.Println(a.Intersect(b).Contains(2))
+	
+	ch, _ := a.Iterator()
+	for x := range ch {
+		fmt.Println(x)
+	}
+
 
 Rationale
 ---------
