@@ -29,6 +29,11 @@ Examples
 	b.Add(5)
 	fmt.Println(a.Intersect(b).Contains(2))
 
+	ch, _ := a.Iterator()
+	for x := range ch {
+		fmt.Println(x)
+	}
+
 Rationale
 
 All operations are invoked in an object oriented style. Only the Add, Remove
