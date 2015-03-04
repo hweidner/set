@@ -3,9 +3,8 @@
 // Version 3 that can be found in the LICENSE file.
 
 /*
-A generic set implementation for Go.
+Package set provides a generic set implementation for Go.
 
-Package set offeres a generic set implementation in Go.
 See http://en.wikipedia.org/wiki/Set_%28mathematics%29 for a full discussion
 of sets.
 

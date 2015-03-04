@@ -9,6 +9,7 @@ import (
 	"sort"
 )
 
+// Version of the set package
 const VERSION = "0.1"
 
 // ----- AnySlice -----
@@ -34,7 +35,7 @@ func (s AnySlice) Swap(i, j int) {
 
 // ----- Set definition -----
 
-// A set is implemented as a map without values.
+// The Set is implemented as a map without values.
 type Set map[interface{}]struct{}
 
 // how to initialize the map entry
@@ -74,7 +75,7 @@ func (s Set) Remove(e ...interface{}) {
 
 // Clear removes all elements from the given set.
 func (s Set) Clear() {
-	for k, _ := range s {
+	for k := range s {
 		delete(s, k)
 	}
 }
@@ -107,7 +108,7 @@ func (s Set) IsEqual(t Set) bool {
 	if len(s) != len(t) {
 		return false
 	}
-	for k, _ := range s {
+	for k := range s {
 		if _, ok := t[k]; !ok {
 			return false
 		}
@@ -118,7 +119,7 @@ func (s Set) IsEqual(t Set) bool {
 // IsSubsetOf returns true if the set s is a subset of the set t, e.g. if
 // all elements of s are also in t.
 func (s Set) IsSubsetOf(t Set) bool {
-	for k, _ := range s {
+	for k := range s {
 		if _, ok := t[k]; !ok {
 			return false
 		}
@@ -135,7 +136,7 @@ func (s Set) IsSupersetOf(t Set) bool {
 // Copy returns a copy of a set. The set s is not modified.
 func (s Set) Copy() Set {
 	t := Set{}
-	for k, _ := range s {
+	for k := range s {
 		t[k] = value
 	}
 	return t
@@ -145,11 +146,11 @@ func (s Set) Copy() Set {
 // The sets themselfes are not modified.
 func (s Set) Union(t ...Set) Set {
 	r := Set{}
-	for k, _ := range s {
+	for k := range s {
 		r[k] = value
 	}
 	for _, i := range t {
-		for k, _ := range i {
+		for k := range i {
 			r[k] = value
 		}
 	}
@@ -161,7 +162,7 @@ func (s Set) Union(t ...Set) Set {
 func (s Set) Intersect(t ...Set) Set {
 	r := Set{}
 next_s_elem:
-	for k, _ := range s {
+	for k := range s {
 		for _, i := range t {
 			if _, ok := i[k]; !ok {
 				continue next_s_elem
@@ -176,7 +177,7 @@ next_s_elem:
 // The sets themselfes are not modified.
 func (s Set) Diff(t Set) Set {
 	r := Set{}
-	for k, _ := range s {
+	for k := range s {
 		if _, ok := t[k]; !ok {
 			r[k] = value
 		}
@@ -188,7 +189,7 @@ func (s Set) Diff(t Set) Set {
 // sets. The sets themselfes are not modified.
 func (s Set) SymDiff(t Set) Set {
 	r := s.Copy()
-	for k, _ := range t {
+	for k := range t {
 		if _, ok := s[k]; !ok {
 			r[k] = value
 		} else {
@@ -201,7 +202,7 @@ func (s Set) SymDiff(t Set) Set {
 // List returns a list of the set elements in a slice.
 func (s Set) List() AnySlice {
 	r := make(AnySlice, 0, len(s))
-	for k, _ := range s {
+	for k := range s {
 		r = append(r, k)
 	}
 	return r
@@ -217,7 +218,7 @@ func (s Set) SortedList() AnySlice {
 // Function for implementing the fmt.Stringer interface to prettyprint the set.
 func (s Set) String() string {
 	str := "{ "
-	for k, _ := range s {
+	for k := range s {
 		str += fmt.Sprint(k) + " "
 	}
 	str += "}"
@@ -231,7 +232,7 @@ func (s Set) Iterator() (<-chan interface{}, chan<- struct{}) {
 	ic := make(chan interface{})
 	done := make(chan struct{})
 	go func() {
-		for k, _ := range s {
+		for k := range s {
 			select {
 			case ic <- k:
 			case <-done:

@@ -16,7 +16,7 @@ func TestSet(t *testing.T) {
 	zero := New()
 	zero.Add(0)
 	full := NewInit(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-	a_str := "[0 1 3 5 7 9]"
+	aStr := "[0 1 3 5 7 9]"
 
 	un := a.Union(b)
 	if !un.IsEqual(full) {
@@ -29,18 +29,18 @@ func TestSet(t *testing.T) {
 	}
 
 	str := fmt.Sprint(a.SortedList())
-	if str != a_str {
-		t.Errorf("SortedList failed: expected %v, got %v.\n", str, a_str)
+	if str != aStr {
+		t.Errorf("SortedList failed: expected %v, got %v.\n", str, aStr)
 	}
 
 	if !a.IsSupersetOf(in) {
-		t.Error("IsSupersectOf failed: %v is expected to be a superset of %v.\n", a, in)
+		t.Errorf("IsSupersectOf failed: %v is expected to be a superset of %v.\n", a, in)
 	}
 	if !b.IsSubsetOf(un) {
-		t.Error("IsSubsetOf failed: %v is expected to be a subset of %v.\n", b, un)
+		t.Errorf("IsSubsetOf failed: %v is expected to be a subset of %v.\n", b, un)
 	}
 	if un.Len() != 11 || in.Len() != 1 {
-		t.Error("Len Error: got union length %d (expected: 11) and intersect length %d (expected: 1).\n",
+		t.Errorf("Len Error: got union length %d (expected: 11) and intersect length %d (expected: 1).\n",
 			un.Len(), in.Len())
 	}
 
