@@ -143,7 +143,7 @@ func (s Set) Copy() Set {
 }
 
 // Union returns a new set, which represents the union of two or more sets.
-// The sets themselfes are not modified.
+// The sets themselves are not modified.
 func (s Set) Union(t ...Set) Set {
 	r := Set{}
 	for k := range s {
@@ -158,7 +158,7 @@ func (s Set) Union(t ...Set) Set {
 }
 
 // Intersect returns a new set which represents the intersection of two or more sets.
-// The sets themselfes are not modified.
+// The sets themselves are not modified.
 func (s Set) Intersect(t ...Set) Set {
 	r := Set{}
 next_s_elem:
@@ -174,7 +174,7 @@ next_s_elem:
 }
 
 // Diff returns a new set which represents the difference of two sets.
-// The sets themselfes are not modified.
+// The sets themselves are not modified.
 func (s Set) Diff(t Set) Set {
 	r := Set{}
 	for k := range s {
@@ -186,7 +186,7 @@ func (s Set) Diff(t Set) Set {
 }
 
 // SymDiff returns a new set which represents the symmetric difference of two
-// sets. The sets themselfes are not modified.
+// sets. The sets themselves are not modified.
 func (s Set) SymDiff(t Set) Set {
 	r := s.Copy()
 	for k := range t {
