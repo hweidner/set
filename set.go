@@ -9,7 +9,7 @@ import (
 	"sort"
 )
 
-// Version of the set package
+// VERSION is the version number of the set package
 const VERSION = "0.1"
 
 // ----- AnySlice -----
