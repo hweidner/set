@@ -5,6 +5,7 @@ A generic set implementation for Go.
 
 [![GoDoc](https://godoc.org/github.com/hweidner/set?status.svg)](https://godoc.org/github.com/hweidner/set)
 [![Go Report Card](https://goreportcard.com/badge/github.com/hweidner/set)](https://goreportcard.com/report/github.com/hweidner/set)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/hweidner/set.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/hweidner/set/alerts/)
 
 Package set offeres a generic set implementation in Go.
 See http://en.wikipedia.org/wiki/Set_%28mathematics%29 for a full discussion
