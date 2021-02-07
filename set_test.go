@@ -1,6 +1,7 @@
 // Copyright 2014 by Harald Weidner <hweidner@gmx.net>. All rights reserved.
-// Use of this source code is governed by the GNU Lesser General Public License
-// Version 3 that can be found in the LICENSE file.
+// Use of this source code is governed by the MIT license. See the LICENSE file
+// for a full text of the license.
+// SPDX-License-Identifier: MIT
 
 package set
 

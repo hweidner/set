@@ -1,15 +1,14 @@
-set
-===
-
-A generic set implementation for Go.
-
-[![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GoDocs](https://godocs.io/github.com/hweidner/set?status.svg)](https://godocs.io/github.com/hweidner/set)
 [![Go Reference](https://pkg.go.dev/badge/github.com/hweidner/set.svg)](https://pkg.go.dev/github.com/hweidner/set)
 [![Go Report Card](https://goreportcard.com/badge/github.com/hweidner/set)](https://goreportcard.com/report/github.com/hweidner/set)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/hweidner/set.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/hweidner/set/alerts/)
 
-Package set offeres a generic set implementation in Go.
+set
+===
+
+A generic set implementation for Go.
+
 See http://en.wikipedia.org/wiki/Set_%28mathematics%29 for a full discussion
 of sets.
 
@@ -49,6 +48,6 @@ and Clear methods modify the receiver.
 License
 -------
 
-This package is released under the GNU Lesser General Public License, Version
-3. The full license text can be found in the LICENSE file of the source code
-distribution.
+This package is released under the MIT license.
+The full license text can be found in the [LICENSE](LICENSE) file.
+
