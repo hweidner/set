@@ -15,6 +15,9 @@ of sets.
 This package implements a set as a map without values. Keys can have any
 arbitrary type, as long as there is equality defined on it.
 
+This version of the package is fixed to v1.0.0. No more updates will happen.
+There will be a new version using Generics soon.
+
 Examples
 --------
 
