@@ -1,8 +1,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GoDocs](https://godocs.io/github.com/hweidner/set?status.svg)](https://godocs.io/github.com/hweidner/set)
-[![Go Reference](https://pkg.go.dev/badge/github.com/hweidner/set.svg)](https://pkg.go.dev/github.com/hweidner/set)
-[![Go Report Card](https://goreportcard.com/badge/github.com/hweidner/set)](https://goreportcard.com/report/github.com/hweidner/set)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/hweidner/set.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/hweidner/set/alerts/)
+[![GoDocs](https://godocs.io/github.com/hweidner/set/v2?status.svg)](https://godocs.io/github.com/hweidner/set/v2)
+[![Go Reference](https://pkg.go.dev/badge/github.com/hweidner/set/v2.svg)](https://pkg.go.dev/github.com/hweidner/set/v2)
+[![Go Report Card](https://goreportcard.com/badge/github.com/hweidner/set/v2)](https://goreportcard.com/report/github.com/hweidner/set/v2)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/hweidner/set/v2.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/hweidner/set/v2/alerts/)
 
 set
 ===
