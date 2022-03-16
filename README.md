@@ -7,7 +7,7 @@
 set
 ===
 
-A generic set implementation for Go.
+A set implementation for Go using generics.
 
 See http://en.wikipedia.org/wiki/Set_%28mathematics%29 for a full discussion
 of sets.
@@ -15,8 +15,15 @@ of sets.
 This package implements a set as a map without values. Keys can have any
 arbitrary type, as long as there is equality defined on it.
 
-This version of the package is fixed to v1.0.0. No more updates will happen.
-There will be a new version using Generics soon.
+This module contains two set implementations:
+
+  * A generic implementation using interface{} values, for all versions of Go.
+    This is fixed to v1.0.0. No more updates will happen.
+  * An implementation using generics in the v2 directory.
+    This requires Go 1.18 or later.
+
+This documentation is for the version 1 of the package.
+See [v2/README.md](v2/README.md) for the documentation of the version 2 package.
 
 Examples
 --------
