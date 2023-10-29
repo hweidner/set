@@ -205,11 +205,12 @@ func (s Set[T]) Iterator() (<-chan T, chan<- struct{}) {
 	ic := make(chan T)
 	done := make(chan struct{})
 	go func() {
+	loop:
 		for k := range s.set {
 			select {
 			case ic <- k:
 			case <-done:
-				break
+				break loop
 			}
 		}
 		close(ic)
