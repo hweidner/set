@@ -7,10 +7,9 @@ package set
 
 import (
 	"fmt"
+	"slices"
 	"testing"
 	"time"
-
-	"golang.org/x/exp/slices"
 )
 
 func TestSet(t *testing.T) {
@@ -80,7 +79,7 @@ func TestSet(t *testing.T) {
 
 	}
 
-	g := fmt.Sprint(zero)
+	g := zero.String()
 	if g != "{ 0 }" {
 		t.Errorf("String failed: got %v, expected \"{ 0 }\".\n", g)
 

@@ -8,7 +8,6 @@ A set library for Go using generics
 
 Package set provides a generic type-safe set library in Go, using the new generics
 language extension in Go 1.18 and higher.
-
 */
 package set
 
@@ -201,7 +200,7 @@ func (s Set[T]) List() []T {
 // Iterator returns a channel that can be used to iterate over the set. A second
 // "done" channel can be used to preliminarily terminate the iteration by closing
 // the done channel.
-func (s Set[T]) Iterator() (<-chan T, chan<- struct{}) {
+func (s Set[T]) Iterator() (iter <-chan T, donech chan<- struct{}) {
 	ic := make(chan T)
 	done := make(chan struct{})
 	go func() {
