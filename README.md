@@ -2,7 +2,6 @@
 [![GoDocs](https://godocs.io/github.com/hweidner/set?status.svg)](https://godocs.io/github.com/hweidner/set)
 [![Go Reference](https://pkg.go.dev/badge/github.com/hweidner/set.svg)](https://pkg.go.dev/github.com/hweidner/set)
 [![Go Report Card](https://goreportcard.com/badge/github.com/hweidner/set)](https://goreportcard.com/report/github.com/hweidner/set)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/hweidner/set.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/hweidner/set/alerts/)
 
 set
 ===
@@ -47,7 +46,6 @@ Examples
 	for x := range ch {
 		fmt.Println(x)
 	}
-
 
 Rationale
 ---------

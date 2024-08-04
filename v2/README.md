@@ -2,7 +2,6 @@
 [![GoDocs](https://godocs.io/github.com/hweidner/set/v2?status.svg)](https://godocs.io/github.com/hweidner/set/v2)
 [![Go Reference](https://pkg.go.dev/badge/github.com/hweidner/set/v2.svg)](https://pkg.go.dev/github.com/hweidner/set/v2)
 [![Go Report Card](https://goreportcard.com/badge/github.com/hweidner/set/v2)](https://goreportcard.com/report/github.com/hweidner/set/v2)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/hweidner/set/v2.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/hweidner/set/v2/alerts/)
 
 set
 ===
@@ -51,7 +50,6 @@ Examples
 		fmt.Println(x)
 	}
 
-
 Rationale
 ---------
 
@@ -63,4 +61,3 @@ License
 
 This package is released under the MIT license.
 The full license text can be found in the [LICENSE](LICENSE) file.
-
