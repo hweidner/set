@@ -11,7 +11,11 @@ language extension in Go 1.18 and higher.
 */
 package set
 
-import "fmt"
+import (
+	"fmt"
+	"iter"
+	"maps"
+)
 
 // ----- Set definition -----
 
@@ -185,6 +189,13 @@ func (s Set[T]) SymDiff(t Set[T]) Set[T] {
 	return r
 }
 
+// ----- iterators -----
+
+// All returns an iterator to all elements in the set in an undefined order.
+func (s Set[T]) All() iter.Seq[T] {
+	return maps.Keys(s.set)
+}
+
 // ----- methods that return other data types -----
 
 // List returns an unsorted list of the set elements in a slice.
@@ -200,7 +211,7 @@ func (s Set[T]) List() []T {
 // Iterator returns a channel that can be used to iterate over the set. A second
 // "done" channel can be used to preliminarily terminate the iteration by closing
 // the done channel.
-func (s Set[T]) Iterator() (iter <-chan T, donech chan<- struct{}) {
+func (s Set[T]) Iterator() (iterch <-chan T, donech chan<- struct{}) {
 	ic := make(chan T)
 	done := make(chan struct{})
 	go func() {

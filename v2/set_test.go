@@ -105,3 +105,15 @@ func TestSet(t *testing.T) {
 		t.Errorf("Iterator failed: got %d/%d/%d/%t, expected 1-5/1-5/0/false", h1, h2, h3, ok)
 	}
 }
+
+func TestIterator(t *testing.T) {
+	a := New(1, 5, 3, 7, 6, 9, 0, 2)
+	num, sum := 0, 0
+	for i := range a.All() {
+		num++
+		sum += i
+	}
+	if num != 8 || sum != 33 {
+		t.Errorf("Iterator failed: got %d iterations and sum %d, expected %d iterations and sum %d", num, sum, 8, 33)
+	}
+}
