@@ -55,6 +55,13 @@ func TestSet(t *testing.T) {
 		t.Errorf("Contains failed: b should contain values 8, 6, and 4.\n")
 	}
 
+	if !a.ContainsAny(1, 5, 8) {
+		t.Errorf("Contains failed: a should contain values 1 and 5.\n")
+	}
+	if b.ContainsAny(1, 3, 5) {
+		t.Errorf("Contains failed: b should not contain values 1, 3, or 5.\n")
+	}
+
 	c := b.Copy()
 	if !c.IsEqual(b) {
 		t.Errorf("Copy(IsEqual failed: %v and %v expected to be equal.\n", c, b)
@@ -94,7 +101,9 @@ func TestSet(t *testing.T) {
 	if !b.IsEmpty() {
 		t.Errorf("Clear/IsEmpty test failed: b.Clear() is not empty but %v.\n", b)
 	}
+}
 
+func TestIteratorChannel(t *testing.T) {
 	ch, done := New(1, 2, 3, 4, 5).Iterator()
 	h1 := <-ch // must be 1..5
 	h2 := <-ch // dto.
@@ -102,7 +111,7 @@ func TestSet(t *testing.T) {
 	time.Sleep(10 * time.Millisecond)
 	h3, ok := <-ch // must be 0/false because iteration is done
 	if h1 == 0 || h2 == 0 || h3 != 0 || ok != false {
-		t.Errorf("Iterator failed: got %d/%d/%d/%t, expected 1-5/1-5/0/false", h1, h2, h3, ok)
+		t.Errorf("Iterator chennel failed: got %d/%d/%d/%t, expected 1-5/1-5/0/false", h1, h2, h3, ok)
 	}
 }
 

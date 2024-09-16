@@ -14,8 +14,12 @@ package set
 import (
 	"fmt"
 	"iter"
+	"log"
 	"maps"
 )
+
+// ----- global state -----
+var deprecation_warning bool = true
 
 // ----- Set definition -----
 
@@ -80,6 +84,17 @@ func (s Set[T]) Contains(e ...T) bool {
 		}
 	}
 	return true
+}
+
+// ContainsAny checks if a set contains one or more elements. The return value
+// is true if at least one of the given elements is in the set.
+func (s Set[T]) ContainsAny(e ...T) bool {
+	for _, i := range e {
+		if _, ok := s.set[i]; ok {
+			return true
+		}
+	}
+	return false
 }
 
 // IsEqual tests if two sets are equal.
@@ -211,7 +226,15 @@ func (s Set[T]) List() []T {
 // Iterator returns a channel that can be used to iterate over the set. A second
 // "done" channel can be used to preliminarily terminate the iteration by closing
 // the done channel.
+//
+// Deprecated: The Iterator method will be removed in a future release.
+// Use the All() method to iterate over the set instead.
 func (s Set[T]) Iterator() (iterch <-chan T, donech chan<- struct{}) {
+	// TODO: remove this function before the release of v2
+	if deprecation_warning {
+		log.Println("WARN: set.Iterator() is deprecated. Use set.All() to iterate over a set. This warning is only displayed once.")
+		deprecation_warning = false
+	}
 	ic := make(chan T)
 	done := make(chan struct{})
 	go func() {
